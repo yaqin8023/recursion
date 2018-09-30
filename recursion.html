@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用递归实现双色球模拟摇奖</title>
+</head>
+<script type="text/javascript">
+    //联系QQ 2060884089
+    //有木有人知道双色球购买的规则呢？
+    //篮球 1 从1到16的数字随机产生一个数字
+    //红球 6 从1到33的数字里面随机产生
+    //Math.floor(x) 返回小于等于x的最大整数
+   /*var blue = Math.floor(Math.random() * 16 + 1);//产生1-33的随机数
+
+   var red = new Array(6);
+   //自定义一个某数判断在某数组中是否存在的函数
+    var existByArray = function (num,arr) {
+        for(var i = 0;i < arr.length;i++){
+            if(num === arr[i]){
+                return true;
+            }
+        }
+        return false;
+    }
+   for(var i = 0;i < red.length;i++){
+       var num = Math.floor(Math.random() * 33 +1);//产生1-33的随机数
+       console.log("随机数=="+num);
+       if(!existByArray(num,red)){
+           red[i] = num;
+       }else{
+           i--;
+       }
+   }
+   console.log("篮球："+blue);
+   console.log("红球："+red);*/
+   //首先定义一个红球的摇奖池子
+    /*var pool = new Array(34);
+    var  blue = Math.floor(Math.random() * 16 +1);
+    //初始化摇奖球池
+    var shuffling = function () {
+        for(var i = 0;i < pool.length;i++){
+            pool[i] = true;
+        }
+    }
+
+    //定义一个专门用来产生一个红球的函数
+    var getOneRedBall = function () {
+        var num = Math.floor(Math.random() * 33 +1);
+        console.log("产生随机数的红球："+num);
+        if(pool[num]){
+            pool[num] = false;
+            return num;
+        }else{
+            //重新产生一个红球
+            return getOneRedBall();
+        }
+    }
+
+    //启动摇奖池
+    var play = function () {
+        //初始化摇奖池
+        shuffling();
+        var red = new Array(6);
+        for(var i = 0;i < red.length;i++){
+            red[i] = getOneRedBall();
+        }
+        console.log("本次开奖号码：");
+        console.log("篮球："+blue);
+        console.log("红球："+red);
+    }
+    play();*/
+    //用递归写一个阶乘
+    // 算一个5的阶乘  5 * 4 * 3 * 2 *1
+    //阶乘 0  负数、小数点不可以算阶乘
+    function func(n) {
+        if(n == 1){
+            return 1;
+        }
+        //func(n -1) 因为传递的参数 n- 1，那么求 n- 1的阶乘
+        return n * func(n-1);
+    }
+    console.log(func(2));
+    //递归总结两点
+    //1、递归方程，2、递归终止条件结束了
+    //递归的算法核心
+    //1、在有限次可预见性的结果中，找到结果与上一次结果之间的关系
+    //2、func(n) 与 func(n-1)，就好像走楼梯，状态单一，有时候像细胞分裂，会有多种状态组合，并且会影响结果
+
+</script>
+<body>
+
+</body>
+</html>
